@@ -3,7 +3,7 @@ export function searchImages(query) {
   const END_POINT = '/api/';
   const params = new URLSearchParams({
     key: '44428976-d6e941eddcd51cc03234da6bf',
-    q: image,
+    q: query,
     image_type: 'photo',
     orientation: 'horizontal',
     safesearch: true,
