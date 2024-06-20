@@ -11,10 +11,11 @@ const searchForm = document.getElementById('search-form');
 const searchInput = document.getElementById('search-input');
 const loader = document.getElementById('loader');
 
+let query;
 searchForm.addEventListener('submit', event => {
     event.preventDefault();
     loader.style.display = 'block';
-    const query = searchInput.value.trim();
+    let query = searchInput.value.trim();
     if (query === '') {
         iziToast.error({
             title: 'Error',
@@ -24,9 +25,8 @@ searchForm.addEventListener('submit', event => {
     }
 })
 // loader.style.display = 'block';
-const images = searchImages(query);
-images.then((data) => {
-    
+
+searchImages(query).then((data) => {
     if (data.hits.length === 0) {
         iziToast.error({
             title: 'Sorry',
