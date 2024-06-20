@@ -21,30 +21,50 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     })
 
-        loader.style.display = 'block';
-
-        
-        const images = searchImages(query);
-        if (images.length === 0) {
-            images.then(data => displayImages(data.hits));
-            iziToast.error({
-                title: 'Sorry',
-                message: 'There are no images matching your search query. Please try again!'
-            });
-        } else {
-            displayImages(images);
-        }
-    } images.catch(err => {
+    loader.style.display = 'block';
+try {
+    searchImages(query).then((data) => 
+    if (data.hits.length === 0) {
+        iziToast.error({
+            title: 'Sorry',
+            message: 'There are no images matching your search query. Please try again!'
+        });
+    } else {
+        displayImages(images);
+    }).catch((error) => {
         iziToast.error({
             title: 'Error',
             message: 'Failed to fetch images. Please try again later.'
-        });
-    }; 
-        images.finally {
-            loader.style.display = 'none'; 
-        }
-    });
-});
+        })
+    }).finally(() => {
+        loader.style.display = 'none';
+        refs.searchForm.reset();
+    })
+)
+
+    
+    
+//         const images = searchImages(query);
+//         if (images.length === 0) {
+//             images.then(data => displayImages(data.hits));
+//             iziToast.error({
+//                 title: 'Sorry',
+//                 message: 'There are no images matching your search query. Please try again!'
+//             });
+//         } else {
+//             displayImages(images);
+//         }
+//     } images.catch(err => {
+//         iziToast.error({
+//             title: 'Error',
+//             message: 'Failed to fetch images. Please try again later.'
+//         });
+//     }; 
+//         images.finally {
+//             loader.style.display = 'none'; 
+//         }
+//     });
+// });
 
 
 
