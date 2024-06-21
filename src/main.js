@@ -15,7 +15,7 @@ let query;
 searchForm.addEventListener('submit', event => {
     event.preventDefault();
     loader.style.display = 'block';
-    let query = searchInput.value.trim();
+    query = searchInput.value.trim();
     if (query === '') {
         iziToast.error({
             title: 'Error',
