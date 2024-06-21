@@ -21,12 +21,5 @@ export function displayImages(images) {
         </li>
     `).join('');
 
-    if (lightbox) {
-        lightbox.refresh();
-    } else {
-        lightbox = new SimpleLightbox('.gallery a', {
-            captionsData: 'alt',
-            captionDelay: 250
-        });
-    }
+    
 }
