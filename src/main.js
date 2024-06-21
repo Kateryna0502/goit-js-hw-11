@@ -34,8 +34,7 @@ searchForm.addEventListener('submit', event => {
         displayImages(data.hits);
         }    
     })
-        
-        
+               
         .catch((error) => {
     iziToast.error({
         title: 'Error',
@@ -45,6 +44,7 @@ searchForm.addEventListener('submit', event => {
     loader.style.display = 'none';
     searchForm.reset();
 })
+    
  if (lightbox) {
         lightbox.refresh();
     } else {
