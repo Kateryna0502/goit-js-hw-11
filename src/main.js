@@ -25,7 +25,7 @@ let lightbox = new SimpleLightbox('.gallery a', {
 let query;
 searchForm.addEventListener('submit', event => {
     event.preventDefault();
-    // loader.style.display = 'block';
+    
     query = searchInput.value.trim();
     if (query === '') {
         iziToast.error({
